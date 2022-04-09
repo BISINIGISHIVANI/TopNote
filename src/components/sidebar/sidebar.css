@@ -1,0 +1,19 @@
+.sidebar-cflex .fa-solid{
+    margin-right: 0.4rem;
+}
+.sidebar-cflex{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    border-right: 6px solid var(--main-bg)
+}
+.sidebar-cflex label{
+    cursor: pointer;
+    padding: 1rem 0.5rem;
+}
+.sidebar-cflex label:hover{
+    border-radius: 5px;
+    background-color: var(--main-bg);
+    color: var(--mainWhite);
+}
