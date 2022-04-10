@@ -1,41 +1,22 @@
-export function UserLogin(){
-    return  <>
-    <h2>Welcome!</h2>
-    <p>Plan, record and manage projects on any device - even offline.</p>
-    <button>Sign In</button>
-    <button>SignUp</button>
-    <img src="" alt="" srcset="" />
-    </>
-}
-export function SignIn(){
+import "./auth.css";
+import { NavBar } from "../../../components";
+export function ForgotPage(){
     return <>
-    <h2>Sign In</h2>
-    <input type="text"/>
-    <input type="text"/>
-    <button>Sign In</button>
-    <p>Dont Have a account </p><span>SignUp</span>
-    </>
+    <NavBar/>
+    <form className="auth-bd auth-container padding-md">
+    <h2 className="auth-h2">ForgotPassword</h2>
     
-}
-export function SignUp(){
-
-    return <>
-    <h2>Sign Up</h2>
-    <input type="text"/>
-    <input type="text"/>
-    <button>Sign Up</button>
-    <p>Already have account?</p>Sign In
-    </>
-    
-   
-}
-export function ForgotPassword(){
-
-    return <>
-    <h2>ForgotPassword</h2>
-    <p>Enter your email address to reset your 
+    <div className="flex-col flex-justify">
+    <p className="padding-sm input-email">Enter your email address to reset your 
    password.</p>
-   <input/>
-   <button>send</button>
+    <label>Email</label>
+    <input 
+    type="email"
+    className="input-field"/>
+    </div>
+    <div className="flex-col flex-justify">
+    <button className="login-site cursor-pointer">Send</button>
+    </div>
+    </form>
     </>
 }
