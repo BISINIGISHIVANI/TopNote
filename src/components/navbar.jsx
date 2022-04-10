@@ -1,9 +1,28 @@
 import "./navbar.css";
+import { useAuth } from "../hooks";
+import { Link, useNavigate } from "react-router-dom";
 export default function NavBar() {
+  const {authState,authDispatch}=useAuth();
+  const navigate=useNavigate()
+  const authName=authState.user;
+  const checkUserStatus=(authName)=>{
+    return authName ?"Logout" :"Login";
+  }
+  const logoutHandler=()=>{
+    navigate("/");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    authDispatch({type:"LOGOUT"})
+  }
+  const userHandler=(type)=>{
+    type==="Login" ? navigate("/login"):logoutHandler();
+  }
   return (
     <nav class="navigation container">
       <div class="nav-Name">
-        <h1 className="title-firstword">TopNote</h1>
+        <Link to="/">
+        <h1 className="title-firstword cursor-pointer">TopNote</h1>
+        </Link>
       </div>
       <div className="nav-buttons">
         <div>
@@ -17,8 +36,20 @@ export default function NavBar() {
           </button>
         </div>
         <div className="nav-buttons">
-        <button className="login-site cursor-pointer">Login</button>
+          <Link to="/signin">
+        <button 
+        className="login-site cursor-pointer"
+        onClick={()=>userHandler(checkUserStatus(authName))}
+        >
+          {checkUserStatus(authName)}
+        </button>
+        </Link>
+        { authState.user ? authName.firstName :
+        <Link to="/signup">
         <button className="signup-site cursor-pointer">SignUp</button>
+        </Link>
+        }
+        
         </div>
       </div>
     </nav>
