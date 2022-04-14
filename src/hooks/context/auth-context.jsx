@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer} from "react";
-import { AuthReducer } from "../reducer/auth-reducer";
+import { AuthReducer } from "../reducer/idex";
 const intialObj={
   user:"",
   token:"",
