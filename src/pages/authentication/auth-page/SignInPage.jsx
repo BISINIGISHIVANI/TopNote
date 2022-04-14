@@ -26,8 +26,7 @@ export function SignInPage() {
         setUser(guestUser);
     };
     const [pwdToggle, pwdToggler] = usePwdToggle();
-    const signInHandler = async (event) => {
-        event.preventDefault();
+    const signInHandler = async () => {
         try {
           const response = await axios.post("/api/auth/login", user);
           if (response.status === 200) {
@@ -41,7 +40,7 @@ export function SignInPage() {
             alert("Email not found");
           }
           else if (response.status === 401) {
-            alert("Wrong Password");
+            alert("password or email not correct");
           }
           else if (response.status === 500) {
             alert("Server Error");
@@ -51,6 +50,22 @@ export function SignInPage() {
           console.error(error);
         }
       }
+      const checkInputsAreNotEmpty=(user)=>{
+        for (let key in user) {
+            if (!Boolean(user[key])) {
+              return false;
+            }
+          }
+      return true;
+    }
+    const submitHandler=(e)=>{
+        e.preventDefault();
+        if(!checkInputsAreNotEmpty(user)){
+            alert("feild are not empty")
+        }else{
+            signInHandler(user,authDispatch,navigate)
+        }
+    }
     return <>
         <NavBar />
         <form className="auth-bd auth-container padding-md">
@@ -79,7 +94,7 @@ export function SignInPage() {
             </div>
             <div className="flex-col flex-justify">
                 <button
-                    onClick={ signInHandler}
+                    onClick={ submitHandler}
                     className="login-site cursor-pointer"
                 >Sign In</button>
                 <button className="signup-site cursor-pointer"

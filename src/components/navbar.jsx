@@ -49,7 +49,6 @@ export default function NavBar() {
         <button className="signup-site cursor-pointer">SignUp</button>
         </Link>
         }
-        
         </div>
       </div>
     </nav>
