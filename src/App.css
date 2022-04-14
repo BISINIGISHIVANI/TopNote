@@ -1,26 +1,33 @@
 .App {
-    margin: 0 auto;
-    font-family: sans-serif;
-  }
-:root{
-    --primaryColor:  #7C37FA; ;
-    --mainWhite: #fff;
-    --mainBlack: #222;
-    --mainGrey: #ececec;
-    --mainSpacing: 0.1rem;
-    --main-bg:  #0F0A39;
-    --gre: #7B7890;
+  margin: 0 auto;
+  font-family: sans-serif;
 }
+
+:root {
+  --primaryColor: #7C37FA;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --main-bg: #0F0A39;
+  --gre: #7B7890;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-.cursor-pointer{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cursor-pointer {
   cursor: pointer;
 }
-.flex-row{
+
+.flex-row {
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
+}
+
+a {
+  text-decoration: none;
 }

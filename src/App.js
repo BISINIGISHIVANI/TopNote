@@ -1,11 +1,16 @@
 import "./App.css";
-import {LandingPage} from "./pages/index"
+import {LandingPage,SignInPage,SignUpPage,ForgotPage} from "./pages/index";
+import {Routes,Route} from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <LandingPage/>
+      <Routes>
+        <Route path="/" element={<LandingPage/>} />
+        <Route path="/signin" element={<SignInPage/>}/>
+        <Route path="/signup" element={<SignUpPage/>}/>
+        <Route path="/forgotpassword" element={<ForgotPage/>}/>
+      </Routes>
     </div>
   );
 }
-
 export default App;
