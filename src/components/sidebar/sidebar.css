@@ -11,6 +11,7 @@
 .sidebar-cflex label{
     cursor: pointer;
     padding: 1rem 0.5rem;
+    color:var(--main-bg);
 }
 .sidebar-cflex label:hover{
     border-radius: 5px;
