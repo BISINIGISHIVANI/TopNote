@@ -1,6 +1,7 @@
 import  './landing-page.css';
 import { NavBar } from '../../components';
 import {hero} from '../../assets/index';
+import { Link } from 'react-router-dom';
 export default function LandingPage() {
    return <section>
       <NavBar/>
@@ -12,7 +13,9 @@ export default function LandingPage() {
 <h2>Take Note From TopNote</h2>
 <p className='welcome-para'>Focus on what matters most.
 Manage everything, from big projects to personal moments.</p>
+<Link to="/notes">
 <button className='banner-btn1 cursor-pointer'>Get Started</button>
+</Link>
       </div>
        <div className='hero-img'>
        <img src={hero} alt="hero"/>

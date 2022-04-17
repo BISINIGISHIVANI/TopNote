@@ -1,8 +1,11 @@
 import "./sidebar.css";
+import {Link} from "react-router-dom";
 export function Sidebar(){
     return <>
     <div className="sidebar-cflex">
+    <Link to="/notes">
     <label><i class="fa-solid fa-book"></i>Notes</label>
+    </Link>
     <label><i className="fa-solid fa-tag"></i> Label</label>
     <label><i className="fa-solid fa-box-archive"></i> Archive</label>
     <label><i className="fa-solid fa-trash"></i> Trash</label>
