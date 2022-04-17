@@ -1,7 +1,7 @@
 # React-Notes
 
 This folder contains the Mock Backend created for notes App. It contains different API end-points and database configuration for building notes.
-##TopNote App
+## `TopNote App`
   #### TopNote is a app for note taking online fast and ease[TopNote- App](https://topnote-mini.netlify.app/).
 
 - features of app
@@ -10,11 +10,11 @@ This folder contains the Mock Backend created for notes App. It contains differe
   - Signup
   - Logout
 - Filter  By
-  -date
+  - date
   - high to low
- -Trash 
- -Archive
- -label note
+ - Trash 
+ - Archive
+ - label note
  - edit note
   - ---
 
@@ -71,22 +71,3 @@ And then open http://localhost:3000 to view it in the browser.
 ## Desktop and mobile support
 ---
 
-# Getting Started with Create React App
-
-This project was bootstrapped with
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-https://topnote-mini.netlify.app/
