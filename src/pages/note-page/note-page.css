@@ -1,32 +1,43 @@
-:root{
-    --note-bg-red:#c51212;
-    --note-bg-yellow:#c5c512;
-    --note-bg-green:#36c512;
-    --note-bg-blue:#1218c5;
-    --note-bg-pink:#c512b3;
-    --note-bg-gray:#c6dcd7;
-    --note-bg:#4e3e9ff5;
+:root {
+    --note-bg-red: #f9393986;
+    --note-bg-yellow: #ffff65ae;
+    --note-bg-green: #36c512;
+    --note-bg-blue: #1218c580;
+    --note-bg-pink: #c512b38a;
+    --note-bg-gray: #c6dcd7;
+    --note-bg: #4e3e9fc2;
 }
-.align-md{
-    margin:2rem auto;
-    gap:2rem;
+
+.align-md {
+    margin: 2rem auto;
+    gap: 2rem;
 }
-.note-list{
-    width:80%;
+
+.note-list {
+    width: 80%;
     display: grid;
-    gap:2rem 2rem;
-    grid-template-columns: repeat(
-         auto-fill,
-         minmax(20rem, 1fr)
-     );
+    gap: 2rem 2rem;
+    grid-template-columns: repeat(auto-fill,
+            minmax(20rem, 1fr));
 }
-.mg-left-sm{
+
+.margin-top {
+    margin-top: 1rem;
+}
+
+.margin-auto {
+    margin: 1rem auto;
+}
+
+.mg-left-sm {
     margin-left: 0.4rem;
 }
-.position-right{
+
+.position-right {
     position: relative;
-    left:0;
+    left: 0;
 }
-.flex-grow{
+
+.flex-grow {
     flex-grow: 1;
 }
