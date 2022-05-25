@@ -1,29 +1,57 @@
-import React,{useState} from "react";
-import {useNote} from "../../hooks/context/note-context";
+import React, { useState } from "react";
+import { useNote } from "../../hooks/context/note-context";
+import parse from "html-react-parser";
 import "./style.css";
-export const NoteCard=({_id,title,text,date,bgColor,})=>{
-    const {deleteNote}=useNote();
-    return (
-        <div className={`note-container ${bgColor}`}>
-           <div className="note-text-area">
-               <h4  className="note-text"> <span>Note Title:</span> {title}</h4>
-               <p className="note-text">{text}</p>
-           </div>
-           <div className="note-footer">
-            <div className="note-footer-left">
-                <i className="fa-solid fa-edit cursor-pointer"></i>
-                <span className="fa-solid">{date}</span>
-                <i className="fa-solid fa-palette"></i>
-            </div>
-            <div className="note-footer-right">
-              <i className="fa-solid fa-tag"></i>
-              <i className="fa-solid fa-archive"></i> 
-              <i className="fa-solid fa-trash"
-              onClick={()=>deleteNote(_id)}
-              ></i> 
-              <i className="fa-solid fa-check"></i> 
-            </div>
-           </div>
+export const NoteCard = (props) => {
+  const {
+    _id,
+    title,
+    text,
+    date,
+    time,
+    bgColor,
+    setAddNoteEnable,
+    setEditnoteEnable,
+    notesData,
+    setNotesData,
+  } = props;
+  const { deleteNote} = useNote();
+  const handleEditNote = (data) => {
+    setAddNoteEnable(false);
+    setEditnoteEnable(true);
+    setNotesData(data);
+  };
+  return (
+    <div>
+      <div className={`note-container note-card ${bgColor}`}>
+        <div className="note-text-area">
+          <div>
+            <h4 className="note-text">
+              {" "}
+              <span>Note Title:</span> {title}
+            </h4>
+          </div>
+          <div className="note-text text-container">{parse(text)}</div>
         </div>
-    )
-}
+        <hr className="bd-black"/>
+        <div className={`note-footer  ${bgColor}`}>
+          <div className="note-footer-left  place-center">
+            <i className="fa-solid fa-edit cursor-pointer" onClick={()=>handleEditNote(props)}></i>
+            <div className="sidebar-cflex">
+              <span className="fa-solid">{date} </span>
+              <span className="fa-solid">{time}</span>
+            </div>
+          </div>
+          <div className="note-footer-right  place-center">
+            <i className="fa-solid fa-tag"></i>
+            <i className="fa-solid fa-archive"></i>
+            <i
+              className="fa-solid fa-trash"
+              onClick={() => deleteNote(_id)}
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
