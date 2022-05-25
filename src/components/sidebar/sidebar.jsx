@@ -13,7 +13,9 @@ export function Sidebar(){
             <i className="fa-solid fa-tag"></i> Label
           </label>
           <label>
-            <i className="fa-solid fa-box-archive"></i> Archive
+            <Link to="/archive">
+              <i className="fa-solid fa-box-archive"></i> Archive
+            </Link>
           </label>
           <label>
             <i className="fa-solid fa-trash"></i> Trash

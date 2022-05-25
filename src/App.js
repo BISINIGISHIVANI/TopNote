@@ -1,5 +1,5 @@
 import "./App.css";
-import {LandingPage,SignInPage,SignUpPage,ForgotPage,NotePage } from "./pages/index";
+import {LandingPage,SignInPage,SignUpPage,ForgotPage,NotePage,ArchivePage } from "./pages/index";
 import {Routes,Route} from "react-router-dom";
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage/>}/>
         <Route path="/forgotpassword" element={<ForgotPage/>}/>
         <Route path="/notes" element={<NotePage/>}/>
+        <Route path = "/archive"element = {<ArchivePage/>}/>
       </Routes>
     </div>
   );
