@@ -13,8 +13,8 @@ export function AddNote({ setaddNoteEnable }) {
     text: "",
     date,
     time,
-    labelTag:"",
-    priorityTag:"",
+    labelTag: "",
+    priorityTag: "",
     bgColor: "default",
   });
   const [chooseColor, setChooseColor] = useState(false);

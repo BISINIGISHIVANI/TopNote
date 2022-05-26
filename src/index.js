@@ -15,11 +15,11 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <Router> 
-      <NoteProvider>
-      <ArchiveNoteProvider >
-      <App />
-      </ArchiveNoteProvider>
-      </NoteProvider>
+        <NoteProvider>
+          <ArchiveNoteProvider >
+            <App />
+          </ArchiveNoteProvider>
+        </NoteProvider>
       </Router>
     </AuthProvider>
   </React.StrictMode>,

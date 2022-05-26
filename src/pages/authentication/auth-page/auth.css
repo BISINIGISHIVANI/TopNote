@@ -1,49 +1,65 @@
-.password-field,.input-email,.input-text{
+.password-field,
+.input-email,
+.input-text {
     border: 1px solid var(--primaryColor);
     border-radius: 7px;
 }
-.input-field{
+
+.input-field {
     font-size: 1.2rem;
-    padding:0.5rem 0.2rem;
+    padding: 0.5rem 0.2rem;
 }
-.input-email,.password-field,.input-text{
-    width:19rem;
+
+.input-email,
+.password-field,
+.input-text {
+    width: 19rem;
 }
-.padding-sm{
+
+.padding-sm {
     padding: 8px 4px;
 }
-.input-pwd{
+
+.input-pwd {
     border: none;
     outline: none;
     background: none;
 }
-.auth-container{
+
+.auth-container {
     width: max-content;
     margin: 4rem auto;
     border-radius: 5px;
 }
-.eye-left{
+
+.eye-left {
     margin-left: 0.8rem;
 }
-.padding-md{
+
+.padding-md {
     padding: 1rem 1.5rem;
 }
-.auth-bd{
+
+.auth-bd {
     border: 2px solid var(--primaryColor);
 }
-.auth-text{
+
+.auth-text {
     color: var(--primaryColor);
 }
-.auth-h2{
+
+.auth-h2 {
     text-align: center;
     color: var(--primaryColor);
 }
-.flex-col{
+
+.flex-col {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.flex-justify{
+
+.flex-justify {
     margin-top: 1rem;
     justify-content: center;
 }

@@ -1,5 +1,12 @@
 import "./App.css";
-import {LandingPage,SignInPage,SignUpPage,ForgotPage,NotePage,ArchivePage,LabelPage } from "./pages/index";
+import {
+  LandingPage,
+  SignInPage,
+  SignUpPage,
+  ForgotPage,
+  NotePage,
+  ArchivePage,
+  LabelPage } from "./pages/index";
 import {Routes,Route} from "react-router-dom";
 function App() {
   return (

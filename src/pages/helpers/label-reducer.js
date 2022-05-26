@@ -1,7 +1,11 @@
-import {useNote} from "../../hooks/context/note-context"
-export const LabelReducer=(state,action)=>{
-    const {notes}=useNote()
-    switch(action.type){
+import {
+    useNote
+} from "../../hooks/context/note-context"
+export const LabelReducer = (state, action) => {
+    const {
+        notes
+    } = useNote()
+    switch (action.type) {
         case "ALL":
             return {
                 ...state,
@@ -22,7 +26,7 @@ export const LabelReducer=(state,action)=>{
                 ...state,
                 labelledArr: notes.filter((item) => item.labelTag === "RoughNotes"),
             }
-        default:
-          return state;
+            default:
+                return state;
     }
 }

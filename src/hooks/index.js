@@ -1,2 +1,6 @@
-import {useAuth} from "./context/auth-context";
-export {useAuth}
+import {
+    useAuth
+} from "./context/auth-context";
+export {
+    useAuth
+}

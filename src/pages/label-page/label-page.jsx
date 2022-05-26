@@ -78,7 +78,13 @@ export default function LabelPage() {
                     <NoteCard key={item._id} {...item} />
                   ))}
                 </div>
-                {!labelledArr ? <h2 className="margin-top">No label notes,please add label to your notes.</h2>:""}
+                {!labelledArr ? (
+                  <h2 className="margin-top">
+                    No label notes,please add label to your notes.
+                  </h2>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>

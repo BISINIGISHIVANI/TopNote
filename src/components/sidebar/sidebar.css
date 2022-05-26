@@ -1,26 +1,32 @@
-.sidebar-cflex .fa-solid{
+.sidebar-cflex .fa-solid {
     margin-right: 0.4rem;
 }
-.sidebar-cflex{
+
+.sidebar-cflex {
     width: fit-content;
     display: flex;
     flex-direction: column;
-    padding:1rem;
+    padding: 1rem;
 }
-.flex-wrap{
-    display:flex;
+
+.flex-wrap {
+    display: flex;
     flex-wrap: wrap;
 }
-.sidebar-cflex label{
+
+.sidebar-cflex label {
     cursor: pointer;
     padding: 1rem 0.5rem;
-    color:var(--main-bg);
+    color: var(--main-bg);
 }
-.sidebar-cflex label:hover,.active{
+
+.sidebar-cflex label:hover,
+.active {
     border-radius: 5px;
     background-color: var(--main-bg);
     color: var(--mainWhite);
 }
-.active a{
+
+.active a {
     color: var(--mainWhite);
 }

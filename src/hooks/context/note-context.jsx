@@ -6,7 +6,9 @@ const NoteContext = createContext();
 
 const NoteProvider = ({ children }) => {
   const [notes, setNotes] = useState([]);
-  const {authState:{token}}=useAuth()
+  const {
+    authState: { token },
+  } = useAuth();
   const addNote = async (noteText) => {
     try {
       const response = await axios.post(
@@ -22,7 +24,7 @@ const NoteProvider = ({ children }) => {
       console.log(error);
     }
   };
-  
+
   const deleteNote = async (id) => {
     const response = await axios.delete(`/api/notes/${id}`, {
       headers: { authorization: token },
@@ -52,7 +54,9 @@ const NoteProvider = ({ children }) => {
     }
   };
   return (
-    <NoteContext.Provider value={{ notes, setNotes, addNote, deleteNote,editNote }}>
+    <NoteContext.Provider
+      value={{ notes, setNotes, addNote, deleteNote, editNote }}
+    >
       {children}
     </NoteContext.Provider>
   );

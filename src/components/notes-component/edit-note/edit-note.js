@@ -10,7 +10,7 @@ export function EditNote({setEditnoteEnable,_id,title,text,bgColor,labelTag,prio
     const time=addTime();
     const [value,setValue]=useState({title:title,text:text,date,time,bgColor:bgColor,labelTag:labelTag,priorityTag:priorityTag});
     const [chooseColor,setChooseColor]=useState(false);
-   const handleSubmit=(e,id,noteText)=>{
+    const handleSubmit=(e,id,noteText)=>{
        e.preventDefault()   
        editNote(id,noteText)
        setValue({

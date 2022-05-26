@@ -18,21 +18,17 @@ export const NoteCard = (props) => {
     labelTag,
     priorityTag,
   } = props;
-  const { notes,setNotes,deleteNote} = useNote();
-  const {
-    archiveNote,
-    addArchiveNote,
-    restoreArchiveNote,
-    deleteArchiveNote,
-  } = useArchiveNote();
+  const { notes, setNotes, deleteNote } = useNote();
+  const { archiveNote, addArchiveNote, restoreArchiveNote, deleteArchiveNote } =
+    useArchiveNote();
   const handleEditNote = (data) => {
     setAddNoteEnable(false);
     setEditnoteEnable(true);
     setNotesData(data);
   };
-  const handleArchiveNote=()=>{
+  const handleArchiveNote = () => {
     return archiveNote.some((note) => note._id === _id);
-  }
+  };
   return (
     <div>
       <div className={`note-container note-card ${bgColor}`}>
@@ -71,30 +67,30 @@ export const NoteCard = (props) => {
               <span className="fa-solid">{time}</span>
             </div>
           </div>
-            <div className="note-footer-right  place-center">
-              {handleArchiveNote(_id) ? (
-                <i
-                  className="fa-solid fa-trash-arrow-up"
-                  onClick={() => restoreArchiveNote(_id)}
-                ></i>
-              ) : (
-                <i
-                  className="fa-solid fa-archive"
-                  onClick={() => addArchiveNote(_id)}
-                ></i>
-              )}
-              {handleArchiveNote(_id)? (
-                <i
-                  className="fa-solid fa-trash-can"
-                  onClick={() => deleteArchiveNote(_id)}
-                ></i>
-              ) : (
-                <i
-                  className="fa-solid fa-trash"
-                  onClick={() => deleteNote(_id)}
-                ></i>
-              )}
-            </div>
+          <div className="note-footer-right  place-center">
+            {handleArchiveNote(_id) ? (
+              <i
+                className="fa-solid fa-trash-arrow-up"
+                onClick={() => restoreArchiveNote(_id)}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-archive"
+                onClick={() => addArchiveNote(_id)}
+              ></i>
+            )}
+            {handleArchiveNote(_id) ? (
+              <i
+                className="fa-solid fa-trash-can"
+                onClick={() => deleteArchiveNote(_id)}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-trash"
+                onClick={() => deleteNote(_id)}
+              ></i>
+            )}
+          </div>
         </div>
       </div>
     </div>
