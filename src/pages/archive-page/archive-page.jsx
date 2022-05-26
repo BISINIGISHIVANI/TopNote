@@ -1,4 +1,3 @@
-import "./style.css";
 import { NavBar, Sidebar } from "../../components";
 import { NoteCard } from "../../components/notes-component/notecard";
 import { useArchiveNote } from "../../hooks/context/archive-context";
