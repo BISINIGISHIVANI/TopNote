@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useNote } from "../../hooks/context/note-context";
 import dayjs from "dayjs";
 import { RichTextEditor } from "./edit-note/richtext-editor";
@@ -13,6 +13,8 @@ export function AddNote({ setaddNoteEnable }) {
     text: "",
     date,
     time,
+    labelTag:"",
+    priorityTag:"",
     bgColor: "default",
   });
   const [chooseColor, setChooseColor] = useState(false);
@@ -22,18 +24,16 @@ export function AddNote({ setaddNoteEnable }) {
     setaddNoteEnable(false);
   };
   return (
-    <form
-      className="note-container add-note"
-    >
-      <div className={`note-text-area `}>
+    <form className={`note-container add-note padding-md `}>
+      <div className={`note-text-area`}>
         <input
           onChange={(e) => setValue({ ...value, title: e.target.value })}
           value={value.title}
-          className={`note-text note-title ${value.bgColor}`}
+          className={`note-text note-title  ${value.bgColor}`}
           placeholder="Note title "
           required
         />
-        <div className={`text-edit note-card ${value.bgColor}`}>
+        <div className={`text-edit note-card  ${value.bgColor}`}>
           <RichTextEditor
             value={value.text}
             setValue={(text) => setValue((value) => ({ ...value, text }))}
@@ -41,7 +41,7 @@ export function AddNote({ setaddNoteEnable }) {
           />
         </div>
       </div>
-      <div className={`note-footer note-card ${value.bgColor}`}>
+      <div className={`note-footer note-card  ${value.bgColor}`}>
         <div className="note-footer-left">
           <i
             className={`fa-solid fa-palette crursor-pointer`}
@@ -73,9 +73,50 @@ export function AddNote({ setaddNoteEnable }) {
               onClick={() => setValue({ ...value, bgColor: "note-gray" })}
             ></span>
           </div>
+          <div className="labels-container">
+            <div>
+              <label htmlFor="label-tag">
+                <i className={`fa-solid fa-tag`}></i>Label
+              </label>
+              <select
+                className="margin-left"
+                name="label-tag"
+                id="label-tag"
+                onChange={(e) =>
+                  setValue({ ...value, labelTag: e.target.value })
+                }
+              >
+                <optgroup label="Notes">
+                  <option value="">None</option>
+                  <option value="Work">Work</option>
+                  <option value="ClassNotes">ClassNotes</option>
+                  <option value="RoughNotes">RoughNotes</option>
+                </optgroup>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="priority-tag">
+                <i className={`fa-solid fa-calendar`}></i>
+                Priority
+              </label>
+              <select
+                name="priority-tag"
+                id="priority-tag"
+                onChange={(e) =>
+                  setValue({ ...value, priorityTag: e.target.value })
+                }
+              >
+                <optgroup label="Important">
+                  <option value="">None</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
         </div>
         <div className="note-footer-right">
-          <i className="fa-solid fa-tag"></i>
           <i
             className="fa-solid fa-trash"
             onClick={() => setaddNoteEnable(false)}

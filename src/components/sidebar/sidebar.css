@@ -16,8 +16,11 @@
     padding: 1rem 0.5rem;
     color:var(--main-bg);
 }
-.sidebar-cflex label:hover{
+.sidebar-cflex label:hover,.active{
     border-radius: 5px;
     background-color: var(--main-bg);
+    color: var(--mainWhite);
+}
+.active a{
     color: var(--mainWhite);
 }
