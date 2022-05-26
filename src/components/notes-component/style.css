@@ -1,103 +1,202 @@
-.note-container{
+.note-container {
     display: flex;
     flex-direction: column;
-    width:23rem;
     margin: 1rem 0;
-    border:1px solid var(--main-bg);
-}
-.note-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-.note-footer-right .fa-solid,.note-footer-left input,.note-footer-left .fa-solid{
-    cursor:pointer;
-    border:1px solid var(--main-bg);
-    padding:0.2rem 0.8rem;
 }
 
-.note-footer-left{
+.note-card {
+    border: 1px groove var(--main-bg);
+    border-radius: 5px;
+    padding: 0.4rem;
+}
+
+label a {
+    color: var(--main-bg);
+}
+
+label a:hover {
+    color: var(--mainWhite);
+}
+
+.add-note {
+    width: 65%;
+    margin: 1rem auto;
+}
+
+.note-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.note-footer-right .fa-solid,
+.note-footer-left input,
+.note-footer-left .fa-solid {
+    cursor: pointer;
+    padding: 0.2rem 0.8rem;
+}
+
+.note-footer-left {
     display: flex;
     align-items: center center;
 }
 
-.note-text-area{
+.note-text-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.padding-sm {
+    padding: 0 1rem;
+}
+
+.place-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-text-area .note-text {
+    resize: none;
+    padding: 1rem;
+}
+
+.ql-container {
+    min-height: 10rem;
+    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
-.note-text-area .note-text{
-    resize:none;
-    border:none;
-    padding:0.4rem 1rem;
+
+.ql-editor {
+    height: 100%;
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
 }
-.note-text-area textarea:focus{
+
+.note-text-area textarea:focus {
     outline: none;
 }
+
+.text-container {
+    height: 10rem;
+}
+
 .search-filter {
     padding: 0.35rem 0.4rem;
     border-radius: 0 5px 5px 0;
     background-color: var(--primaryColor);
 }
-.search-note{
-    border-radius:  5px 0 0 5px;
+
+.search-note {
+    border-radius: 5px 0 0 5px;
 }
-.search-filter ,.search-note{
+
+.search-filter,
+.search-note {
     border: 1px solid var(--primaryColor);
 }
+
 .color-container {
     width: 10rem;
     height: 3rem;
     background-color: var(--primaryColor);
-    position: absolute;
-    bottom: 14%;
-    left: 25%;
+    position: relative;
+    bottom: 3.5rem;
     border-radius: 0.5rem;
     display: none;
     justify-content: space-around;
     align-items: center;
-  }
-  .show {
+}
+
+.show {
     display: flex;
-  }
-  .color-container .colors {
+}
+
+.color-container .colors {
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 50%;
     cursor: pointer;
-  }
-  .default-note-bg{
-      background-color: var(--note-bg);
-  }
-  .note-red{
-      background-color: var(--note-bg-red);
-      color: white;
-  }
-  .note-blue{
-      background-color: var(--note-bg-blue);
+}
+
+.note-text img {
+    height: 12rem;
+    margin: -3rem 0;
+}
+
+.bd-black {
+    border: 1px solid black;
+}
+
+.default-note-bg {
+    background-color: var(--note-bg);
+}
+
+.note-red {
+    background-color: var(--note-bg-red);
+    color: white;
+}
+
+.note-blue {
+    background-color: var(--note-bg-blue);
+}
+
+.note-yellow {
+    background-color: var(--note-bg-yellow);
+}
+
+.note-green {
+    background-color: var(--note-bg-green);
+}
+
+.note-pink {
+    background-color: var(--note-bg-pink);
+}
+
+.note-gray {
+    background-color: var(--note-bg-gray);
+}
+
+.labels-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tag {
+    border: 1px solid var(--mainBlack);
+    border-radius: 5rem;
+    padding: 0.4rem 0.6rem;
+}
+
+.label-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label-align .flex-end {
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+@media screen and (max-width:450px) {
+    .navigation {
+        width: 125%;
     }
-  .note-yellow{
-      background-color: var(--note-bg-yellow);
-  }
-  .note-green{
-      background-color: var(--note-bg-green);
-  }
-  .note-pink{
-      background-color: var(--note-bg-pink);
-  }
-  .note-gray{
-      background-color: var(--note-bg-gray);
-  }
-  @media screen and (max-width:450px){
-      .navigation{
-          width:125%;
-      }
+
     .color-container {
         position: absolute;
         bottom: -25%;
         left: 65%;
     }
-    .note-container{
-        width:20rem;
-        height:auto;
+
+    .note-container {
+        width: 100%;
+        height: auto;
     }
-  }
+}

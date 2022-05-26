@@ -1,29 +1,98 @@
-import React,{useState} from "react";
-import {useNote} from "../../hooks/context/note-context";
+import React, { useState } from "react";
+import { useNote } from "../../hooks/context/note-context";
+import { useArchiveNote } from "../../hooks/context/archive-context";
+import parse from "html-react-parser";
 import "./style.css";
-export const NoteCard=({_id,title,text,date,bgColor,})=>{
-    const {deleteNote}=useNote();
-    return (
-        <div className={`note-container ${bgColor}`}>
-           <div className="note-text-area">
-               <h4  className="note-text"> <span>Note Title:</span> {title}</h4>
-               <p className="note-text">{text}</p>
-           </div>
-           <div className="note-footer">
-            <div className="note-footer-left">
-                <i className="fa-solid fa-edit cursor-pointer"></i>
-                <span className="fa-solid">{date}</span>
-                <i className="fa-solid fa-palette"></i>
+export const NoteCard = (props) => {
+  const {
+    _id,
+    title,
+    text,
+    date,
+    time,
+    bgColor,
+    setAddNoteEnable,
+    setEditnoteEnable,
+    notesData,
+    setNotesData,
+    labelTag,
+    priorityTag,
+  } = props;
+  const { notes, setNotes, deleteNote } = useNote();
+  const { archiveNote, addArchiveNote, restoreArchiveNote, deleteArchiveNote } =
+    useArchiveNote();
+  const handleEditNote = (data) => {
+    setAddNoteEnable(false);
+    setEditnoteEnable(true);
+    setNotesData(data);
+  };
+  const handleArchiveNote = () => {
+    return archiveNote.some((note) => note._id === _id);
+  };
+  return (
+    <div>
+      <div className={`note-container note-card ${bgColor}`}>
+        <div className="note-text-area">
+          <div>
+            <h4 className="note-text">
+              {" "}
+              <span>Note Title:</span> {title}
+            </h4>
+          </div>
+          <div className="note-text text-container label-align">
+            <div>{parse(text)}</div>
+            <div className="flex-end">
+              <span className={`${labelTag === "" ? "" : "tag"}`}>
+                {labelTag}
+              </span>
+              <span className={`${priorityTag === "" ? "" : "tag"} mg-left-sm`}>
+                {priorityTag}
+              </span>
             </div>
-            <div className="note-footer-right">
-              <i className="fa-solid fa-tag"></i>
-              <i className="fa-solid fa-archive"></i> 
-              <i className="fa-solid fa-trash"
-              onClick={()=>deleteNote(_id)}
-              ></i> 
-              <i className="fa-solid fa-check"></i> 
-            </div>
-           </div>
+          </div>
         </div>
-    )
-}
+        <hr className="bd-black" />
+        <div className={`note-footer  ${bgColor}`}>
+          <div className="note-footer-left  place-center">
+            {handleArchiveNote(_id) || labelTag ? (
+              ""
+            ) : (
+              <i
+                className="fa-solid fa-edit cursor-pointer"
+                onClick={() => handleEditNote(props)}
+              ></i>
+            )}
+            <div className="sidebar-cflex">
+              <span className="fa-solid">{date} </span>
+              <span className="fa-solid">{time}</span>
+            </div>
+          </div>
+          <div className="note-footer-right  place-center">
+            {handleArchiveNote(_id) ? (
+              <i
+                className="fa-solid fa-trash-arrow-up"
+                onClick={() => restoreArchiveNote(_id)}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-archive"
+                onClick={() => addArchiveNote(_id)}
+              ></i>
+            )}
+            {handleArchiveNote(_id) ? (
+              <i
+                className="fa-solid fa-trash-can"
+                onClick={() => deleteArchiveNote(_id)}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-trash"
+                onClick={() => deleteNote(_id)}
+              ></i>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

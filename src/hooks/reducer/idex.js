@@ -1,2 +1,6 @@
-import {AuthReducer} from "./auth-reducer";
-export {AuthReducer}
+import {
+    AuthReducer
+} from "./auth-reducer";
+export {
+    AuthReducer
+}

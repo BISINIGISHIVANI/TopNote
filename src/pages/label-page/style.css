@@ -1,0 +1,16 @@
+.label-menu .label-ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.label-menu ul li {
+    list-style: none;
+}
+
+.label-active {
+    background-color: var(--main-bg);
+    color: var(--mainWhite);
+    border-color: var(--mainWhite);
+}
