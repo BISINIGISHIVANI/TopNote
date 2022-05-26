@@ -9,7 +9,7 @@
     padding: 0.4rem;
 }
 label a{
-    color: var(--mainBlack);
+    color: var(--main-bg);
 }
 label a:hover {
     color: var(--mainWhite);
@@ -130,6 +130,25 @@ label a:hover {
   .note-gray{
       background-color: var(--note-bg-gray);
   }
+  .labels-container{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+  .tag{
+      border: 1px solid var(--mainBlack);
+      border-radius: 5rem;
+      padding: 0.4rem 0.6rem;
+  }
+  .label-align{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  .label-align .flex-end{
+      justify-content: flex-end;
+      align-self: flex-end;
+  }
   @media screen and (max-width:450px){
       .navigation{
           width:125%;
@@ -140,6 +159,7 @@ label a:hover {
         left: 65%;
     }
     .note-container{
+        width: 100%;
         height:auto;
     }
   }
