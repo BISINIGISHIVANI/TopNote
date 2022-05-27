@@ -183,7 +183,9 @@ label a:hover {
     justify-content: flex-end;
     align-self: flex-end;
 }
-
+.input-texts{
+    background: none;
+}
 @media screen and (max-width:450px) {
     .navigation {
         width: 125%;
