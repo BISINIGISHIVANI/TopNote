@@ -6,6 +6,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import { AuthProvider } from "./hooks/context/auth-context";
 import { NoteProvider } from "./hooks/context/note-context";
 import { ArchiveNoteProvider } from "./hooks/context/archive-context";
+import { TrashProvider } from "./hooks/context/trash-context";
 
 // Call make Server
 makeServer();
@@ -15,8 +16,10 @@ ReactDOM.render(
     <AuthProvider>
       <Router> 
         <NoteProvider>
-          <ArchiveNoteProvider >
-            <App />
+          <ArchiveNoteProvider>
+            <TrashProvider>
+              <App />
+            </TrashProvider>
           </ArchiveNoteProvider>
         </NoteProvider>
       </Router>
