@@ -26,6 +26,11 @@
     background: none;
 }
 
+.input-email,
+.input-text {
+    background: none;
+}
+
 .auth-container {
     width: max-content;
     margin: 4rem auto;

@@ -2,7 +2,7 @@ import "./style.css";
 import { useState, useReducer } from "react";
 import { NavBar, Sidebar } from "../../components";
 import { useNote } from "../../hooks/context/note-context";
-import { LabelReducer } from "../helpers/label-reducer";
+import { LabelReducer } from "../../helpers/label-reducer";
 import { NoteCard } from "../../components/notes-component/notecard";
 export default function LabelPage() {
   const { notes } = useNote();
@@ -74,17 +74,19 @@ export default function LabelPage() {
                   </div>
                 </div>
                 <div className="note-list">
+                  {labelledArr.length > 0 ? (
+                    ""
+                  ) : (
+                    <div className="margin-auto">
+                      <h2 className="padding-md">
+                        No label notes.add label to your note
+                      </h2>
+                    </div>
+                  )}
                   {labelledArr.map((item) => (
                     <NoteCard key={item._id} {...item} />
                   ))}
                 </div>
-                {!labelledArr ? (
-                  <h2 className="margin-top">
-                    No label notes,please add label to your notes.
-                  </h2>
-                ) : (
-                  ""
-                )}
               </div>
             </div>
           </div>

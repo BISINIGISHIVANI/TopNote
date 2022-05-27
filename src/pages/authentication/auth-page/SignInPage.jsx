@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../../hooks";
-
+import {toast } from "react-toastify";
 export function SignInPage() {
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
@@ -13,8 +13,8 @@ export function SignInPage() {
     password: "",
   });
   const guestUser = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshBalika123",
+    email: "bisinigishivani@gmail.com",
+    password: "shivani142",
   };
 
   const changeHandler = (event) => {
@@ -42,11 +42,11 @@ export function SignInPage() {
         });
         navigate("/");
       } else if (response.status === 404) {
-        alert("Email not found");
+        toast.info("Email not found");
       } else if (response.status === 401) {
-        alert("password or email not correct");
+        toast.warning("password or email not correct");
       } else if (response.status === 500) {
-        alert("Server Error");
+        toast.error("Server Error");
       }
     } catch (error) {
       console.error(error);
@@ -63,9 +63,10 @@ export function SignInPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!checkInputsAreNotEmpty(user)) {
-      alert("feild are not empty");
+      toast.warn("feild are not empty");
     } else {
       signInHandler(user, authDispatch, navigate);
+      toast.success("account sucessfully login")
     }
   };
   return (

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../../hooks";
-
+import {toast} from "react-toastify"
 export function SignUpPage() {
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
@@ -37,9 +37,9 @@ export function SignUpPage() {
         });
         navigate("/");
       } else if (response.status === 422) {
-        alert("account alerady exists");
+        toast.info("account alerady exists");
       } else if (response.status === 500) {
-        alert("Server Error");
+        toast.error("Server Error");
       }
     } catch (error) {
       console.log(error);
@@ -56,12 +56,13 @@ export function SignUpPage() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!checkInputsAreNotEmpty(user)) {
-      alert("feild are not empty");
+      toast.warning("feild are not empty");
     } else if (user.password !== user.confirmPassword) {
-      alert("password should be similar");
+      toast.info("password should be similar");
       setUser({ ...user, passwordSimilar: true });
     } else {
       SignUpHandler(user, authDispatch, navigate);
+      toast.success("account successfully singup")
     }
   };
   return (
