@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 export function AddNote({ setaddNoteEnable }) {
   const { addNote } = useNote();
   const addDate = () => dayjs().format("DD-MM-YYYY");
-  const addTime = () => dayjs().format("hh-mm A");
+  const addTime = () => dayjs().format("hh:mm:ss A");
   const date = addDate();
   const time = addTime();
   const [value, setValue] = useState({

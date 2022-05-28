@@ -1,0 +1,27 @@
+.filter-container{
+    border:1px solid var(--primaryColor);
+    z-index: 10;
+    background-color: var(--mainWhite);
+}
+.width-fitcontent{
+    width:fit-content;
+}
+.filter-container fieldset{
+    border: none;
+}
+.filter-container legend{
+    color: var(--primaryColor);
+}
+.position-relative{
+    position: relative;
+}
+.position-absolute{
+    position: absolute;
+}
+.align-baseline{
+    align-items: flex-end;
+}
+.bd-round{
+    border: 1px solid var(--primaryColor);
+    border-radius:40%;
+}
