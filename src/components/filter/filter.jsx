@@ -50,7 +50,7 @@ export const NoteFilter = () => {
           <label>
             <input
               type="radio"
-              name="sort"
+              name="sortBytime"
               onChange={() =>
                 filterDispatch({
                   type: "SORT_TIME",
@@ -64,7 +64,7 @@ export const NoteFilter = () => {
           <label>
             <input
               type="radio"
-              name="sort"
+              name="sortBytime"
               onChange={() =>
                 filterDispatch({
                   type: "SORT_TIME",

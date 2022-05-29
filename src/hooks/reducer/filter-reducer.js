@@ -17,6 +17,7 @@ export const FilterReducer = (state, action) => {
           case "FILTER_CLEAR":
               return {
                   sortByPriority: "",
+                  sortByTime:"",
                   searchByTitle: "",
               }
         default:
