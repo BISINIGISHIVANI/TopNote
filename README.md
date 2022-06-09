@@ -2,7 +2,7 @@
 
 This folder contains the Mock Backend created for notes App. It contains different API end-points and database configuration for building notes.
 ## `TopNote App`
-  #### TopNote is a app for note taking online fast and ease[TopNote- App](https://topnote-mini.netlify.app/).
+  #### TopNote is a app for note taking online fast and ease [TopNote- App](https://topnote-mini.netlify.app/).
 
 - features of app
 - Auth Management
