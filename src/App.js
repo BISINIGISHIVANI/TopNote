@@ -40,7 +40,7 @@ function App() {
         <Route path="*"element={<ErrorPage/>}/>
       </Routes>
       <ToastContainer
-        autoClose={3000}
+        autoClose={2000}
         hideProgressBar={false}
         position ="top-right"
         newestOnTop={false}

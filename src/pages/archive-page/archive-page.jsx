@@ -13,14 +13,7 @@ export default function ArchivePage() {
         <div className="flex-grow">
           <div className="align-md mg-left-sm">
             <div className="flex-wrap">
-              <div className="margin-auto">
-                <input
-                  type="text"
-                  placeholder="search for a note"
-                  className="border-searchbox search-note"
-                />
-                <i className="fa-solid fa-filter search-filter border-searchbox cursor-pointer"></i>
-              </div>
+              {archiveNote.length>0? "":<h2 className="padding-md margin-auto">No archive notes found...</h2>}
               <div className="note-list">
                 {archiveNote.map((item) => (
                   <NoteCard key={item._id} {...item} />
