@@ -22,11 +22,15 @@ export function Sidebar() {
             <i className="fa-solid fa-box-archive"></i> Archive
           </Link>
         </label>
-        <label>
-          <i className="fa-solid fa-trash"></i> Trash
+        <label className={`${location.pathname === "/trash" ? "active" : ""}`}>
+          <Link to="/trash">
+            <i className="fa-solid fa-trash"></i> Trash
+          </Link>
         </label>
-        <label>
-          <i className="fa-solid fa-user"></i> Profile
+        <label className={`${location.pathname === "/profile" ? "active" : ""}`}>
+          <Link to="/profile">
+            <i className="fa-solid fa-user"></i> Profile
+          </Link>
         </label>
       </div>
     </>

@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useNote } from "../../hooks/context/note-context";
 import dayjs from "dayjs";
 import { RichTextEditor } from "./edit-note/richtext-editor";
+import {toast} from "react-toastify";
 export function AddNote({ setaddNoteEnable }) {
   const { addNote } = useNote();
   const addDate = () => dayjs().format("DD-MM-YYYY");
-  const addTime = () => dayjs().format("hh-mm A");
+  const addTime = () => dayjs().format("hh:mm:ss A");
   const date = addDate();
   const time = addTime();
   const [value, setValue] = useState({
@@ -18,10 +19,21 @@ export function AddNote({ setaddNoteEnable }) {
     bgColor: "default",
   });
   const [chooseColor, setChooseColor] = useState(false);
+  const checkFieldAreNotEmpty=(value)=>{
+  if(value.title===""){
+    return false;
+  }
+   return true;
+  }
   const handleSubmit = (e, value) => {
     e.preventDefault();
-    addNote(value);
-    setaddNoteEnable(false);
+    if(!checkFieldAreNotEmpty(value)){
+      toast.info("Please Add Note title")
+    }else{
+      addNote(value);
+      setaddNoteEnable(false);
+      toast.success(`${value.title} Notes added`)
+    }
   };
   return (
     <form className={`note-container add-note padding-md `}>
@@ -29,7 +41,7 @@ export function AddNote({ setaddNoteEnable }) {
         <input
           onChange={(e) => setValue({ ...value, title: e.target.value })}
           value={value.title}
-          className={`note-text note-title  ${value.bgColor}`}
+          className={`note-text note-title ${value.bgColor}`}
           placeholder="Note title "
           required
         />

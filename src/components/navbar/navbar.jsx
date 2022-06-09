@@ -1,4 +1,5 @@
 import "./navbar.css";
+import { useState,useEffect } from "react";
 import { useAuth } from "../../hooks";
 import { Link, useNavigate } from "react-router-dom";
 export default function NavBar() {
@@ -17,6 +18,16 @@ export default function NavBar() {
   const userHandler = (type) => {
     type === "Login" ? navigate("/login") : logoutHandler();
   };
+  const themeFromLocal = JSON.parse(localStorage.getItem("darkMode"));
+
+  const [darkMode, setDarkMode] = useState(themeFromLocal || false);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+    darkMode
+      ? document.body.classList.add("dark-mode")
+      : document.body.classList.remove("dark-mode");
+  }, [darkMode]);
   return (
     <nav class="navigation container">
       <div class="nav-Name">
@@ -26,14 +37,9 @@ export default function NavBar() {
       </div>
       <div className="nav-buttons">
         <div>
-          <input
-            type="search"
-            placeholder="search here..."
-            className="border-searchbox search-input"
-          />
-          <button className="search-go border-searchbox cursor-pointer">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
+          <Link to="/notes">
+          <button className="signup-site cursor-pointer"><i className="fa-solid fa-book"></i>Notes</button>
+          </Link>
         </div>
         <div className="nav-buttons">
           <Link to="/signin">
@@ -50,6 +56,14 @@ export default function NavBar() {
             <Link to="/signup">
               <button className="signup-site cursor-pointer">SignUp</button>
             </Link>
+          )}
+          {darkMode ? (
+            <i className="fa-solid fa-sun" onClick={() => setDarkMode(false)}></i>
+          ) : (
+            <i
+              className="fa-solid fa-moon cursor-pointer"
+              onClick={() => setDarkMode(true)}
+            ></i>
           )}
         </div>
       </div>

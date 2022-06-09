@@ -3,6 +3,7 @@ import { useNote } from "../../hooks/context/note-context";
 import { useArchiveNote } from "../../hooks/context/archive-context";
 import parse from "html-react-parser";
 import "./style.css";
+import { useTrash } from "../../hooks/context/trash-context";
 export const NoteCard = (props) => {
   const {
     _id,
@@ -18,9 +19,10 @@ export const NoteCard = (props) => {
     labelTag,
     priorityTag,
   } = props;
-  const { notes, setNotes, deleteNote } = useNote();
+  const { notes, setNotes } = useNote();
   const { archiveNote, addArchiveNote, restoreArchiveNote, deleteArchiveNote } =
     useArchiveNote();
+  const { setTrashNote } = useTrash();
   const handleEditNote = (data) => {
     setAddNoteEnable(false);
     setEditnoteEnable(true);
@@ -28,6 +30,10 @@ export const NoteCard = (props) => {
   };
   const handleArchiveNote = () => {
     return archiveNote.some((note) => note._id === _id);
+  };
+  const moveToTrash = (id, props) => {
+    setTrashNote([props]);
+    setNotes(notes.filter((note) => note._id !== id));
   };
   return (
     <div>
@@ -52,9 +58,9 @@ export const NoteCard = (props) => {
           </div>
         </div>
         <hr className="bd-black" />
-        <div className={`note-footer  ${bgColor}`}>
+        <div className={`note-footer`}>
           <div className="note-footer-left  place-center">
-            {handleArchiveNote(_id) || labelTag ? (
+            {handleArchiveNote() ? (
               ""
             ) : (
               <i
@@ -68,7 +74,7 @@ export const NoteCard = (props) => {
             </div>
           </div>
           <div className="note-footer-right  place-center">
-            {handleArchiveNote(_id) ? (
+            {handleArchiveNote() ? (
               <i
                 className="fa-solid fa-trash-arrow-up"
                 onClick={() => restoreArchiveNote(_id)}
@@ -79,7 +85,7 @@ export const NoteCard = (props) => {
                 onClick={() => addArchiveNote(_id)}
               ></i>
             )}
-            {handleArchiveNote(_id) ? (
+            {handleArchiveNote() ? (
               <i
                 className="fa-solid fa-trash-can"
                 onClick={() => deleteArchiveNote(_id)}
@@ -87,7 +93,7 @@ export const NoteCard = (props) => {
             ) : (
               <i
                 className="fa-solid fa-trash"
-                onClick={() => deleteNote(_id)}
+                onClick={() => moveToTrash(_id, props)}
               ></i>
             )}
           </div>

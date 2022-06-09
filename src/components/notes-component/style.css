@@ -46,6 +46,12 @@ label a:hover {
     flex-direction: column;
     gap: 1rem;
 }
+.note-text-area input{
+    border: 1px solid var(--main-bg);
+    background-color: var(--main-bg);
+    color: var(--mainWhite);
+    outline: none;
+}
 
 .padding-sm {
     padding: 0 1rem;
@@ -113,7 +119,8 @@ label a:hover {
 }
 
 .show {
-    display: flex;
+    display: inline-flex;
+    margin-left: -6rem;
 }
 
 .color-container .colors {
@@ -183,20 +190,22 @@ label a:hover {
     justify-content: flex-end;
     align-self: flex-end;
 }
-
+.input-texts{
+    background: none;
+}
+.width-error-page{
+    width: 80vw;
+}
 @media screen and (max-width:450px) {
     .navigation {
         width: 125%;
     }
 
-    .color-container {
-        position: absolute;
-        bottom: -25%;
-        left: 65%;
-    }
-
     .note-container {
         width: 100%;
         height: auto;
+    }
+    .width-error-page{
+        width:25rem;
     }
 }

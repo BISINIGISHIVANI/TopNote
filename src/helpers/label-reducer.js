@@ -1,6 +1,6 @@
 import {
     useNote
-} from "../../hooks/context/note-context"
+} from "../hooks/context/note-context"
 export const LabelReducer = (state, action) => {
     const {
         notes
